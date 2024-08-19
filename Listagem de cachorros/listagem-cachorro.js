@@ -53,7 +53,6 @@ function carregarCachorros() {
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary btn-sm edit-btn" data-id="${index}">Editar</button>
-                    <button class="btn btn-danger btn-sm delete-btn" data-id="${index}">Excluir</button>
                 </div>
             </div>
         `;
@@ -135,11 +134,3 @@ function formatDateForDisplay(dateString) {
     return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
 }
 
-function excluirCachorro(id) {
-    if (confirm('Tem certeza que deseja excluir este cachorro?')) {
-        const cachorros = JSON.parse(localStorage.getItem('pets')) || [];
-        cachorros.splice(id, 1);
-        localStorage.setItem('pets', JSON.stringify(cachorros));
-        carregarCachorros();
-    }
-}
